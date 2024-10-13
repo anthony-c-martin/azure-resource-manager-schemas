@@ -1,0 +1,103 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2021-10-01-preview/Microsoft.Contoso.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Contoso",
+  "description": "Microsoft Contoso Resource Types",
+  "resourceDefinitions": {
+    "employees": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2021-10-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,24}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the Employee"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EmployeeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Employee properties"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Contoso/employees"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Contoso/employees"
+    }
+  },
+  "definitions": {
+    "EmployeeProperties": {
+      "type": "object",
+      "properties": {
+        "age": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Age of employee"
+        },
+        "city": {
+          "type": "string",
+          "description": "City of employee"
+        },
+        "profile": {
+          "type": "string",
+          "format": "base64url",
+          "description": "Profile of employee"
+        }
+      },
+      "description": "Employee properties"
+    }
+  }
+}

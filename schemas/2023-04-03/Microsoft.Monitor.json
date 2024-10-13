@@ -27,7 +27,7 @@
               "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
             }
           ],
-          "description": "The name of the Azure Monitor workspace.  The name is case insensitive"
+          "description": "The name of the Azure Monitor Workspace. The name is case insensitive"
         },
         "properties": {
           "oneOf": [
@@ -75,7 +75,23 @@
   "definitions": {
     "AzureMonitorWorkspaceResourceProperties": {
       "type": "object",
-      "properties": {},
+      "properties": {
+        "publicNetworkAccess": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gets or sets allow or disallow public network access to Azure Monitor Workspace."
+        }
+      },
       "description": "Resource properties"
     }
   }
