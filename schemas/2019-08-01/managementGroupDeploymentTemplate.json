@@ -600,6 +600,24 @@
               "$ref": "https://schema.management.azure.com/schemas/2022-05-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleDefinitions"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignmentScheduleRequests"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleEligibilityScheduleRequests"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-02-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleManagementPolicyAssignments"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-09-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleAssignmentScheduleRequests"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-09-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleEligibilityScheduleRequests"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-09-01-preview/Microsoft.Authorization.Authz.json#/unknown_resourceDefinitions/roleManagementPolicyAssignments"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2017-09-01/Microsoft.Authorization.json#/resourceDefinitions/roleAssignments"
             },
             {
@@ -714,6 +732,39 @@
               "$ref": "https://schema.management.azure.com/schemas/2022-08-01-preview/Microsoft.Authorization.Resources.json#/managementGroup_resourceDefinitions/variables_values"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2023-04-01/Microsoft.Authorization.Resources.json#/managementGroup_resourceDefinitions/policyDefinitions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-04-01/Microsoft.Authorization.Resources.json#/managementGroup_resourceDefinitions/policyDefinitions_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-04-01/Microsoft.Authorization.Resources.json#/managementGroup_resourceDefinitions/policySetDefinitions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-04-01/Microsoft.Authorization.Resources.json#/managementGroup_resourceDefinitions/policySetDefinitions_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-04-01/Microsoft.Authorization.Resources.json#/unknown_resourceDefinitions/policyAssignments"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Authorization.Resources.json#/unknown_resourceDefinitions/policyAssignments"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-05-01/Microsoft.Authorization.Resources.json#/managementGroup_resourceDefinitions/policyDefinitions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-05-01/Microsoft.Authorization.Resources.json#/managementGroup_resourceDefinitions/policyDefinitions_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-05-01/Microsoft.Authorization.Resources.json#/managementGroup_resourceDefinitions/policySetDefinitions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-05-01/Microsoft.Authorization.Resources.json#/managementGroup_resourceDefinitions/policySetDefinitions_versions"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-05-01/Microsoft.Authorization.Resources.json#/unknown_resourceDefinitions/policyAssignments"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2017-11-11-preview/Microsoft.Blueprint.json#/managementGroup_resourceDefinitions/blueprints"
             },
             {
@@ -807,6 +858,39 @@
               "$ref": "https://schema.management.azure.com/schemas/2023-04-01-preview/Microsoft.CostManagement.json#/unknown_resourceDefinitions/views"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.CostManagement.json#/unknown_resourceDefinitions/exports"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-07-01-preview/Microsoft.CostManagement.json#/unknown_resourceDefinitions/views"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-08-01/Microsoft.CostManagement.json#/unknown_resourceDefinitions/budgets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-08-01/Microsoft.CostManagement.json#/unknown_resourceDefinitions/exports"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-08-01/Microsoft.CostManagement.json#/unknown_resourceDefinitions/views"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-09-01/Microsoft.CostManagement.json#/unknown_resourceDefinitions/budgets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-09-01/Microsoft.CostManagement.json#/unknown_resourceDefinitions/exports"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-09-01/Microsoft.CostManagement.json#/unknown_resourceDefinitions/views"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-11-01/Microsoft.CostManagement.json#/unknown_resourceDefinitions/budgets"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-11-01/Microsoft.CostManagement.json#/unknown_resourceDefinitions/exports"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-11-01/Microsoft.CostManagement.json#/unknown_resourceDefinitions/views"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2020-01-01-preview/Microsoft.Insights.json#/managementGroup_resourceDefinitions/diagnosticSettings"
             },
             {
@@ -846,6 +930,24 @@
               "$ref": "https://schema.management.azure.com/schemas/2023-04-01/Microsoft.Network.NRP.json#/managementGroup_resourceDefinitions/networkManagerConnections"
             },
             {
+              "$ref": "https://schema.management.azure.com/schemas/2023-05-01/Microsoft.Network.NRP.json#/managementGroup_resourceDefinitions/networkManagerConnections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-06-01/Microsoft.Network.NRP.json#/managementGroup_resourceDefinitions/networkManagerConnections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-09-01/Microsoft.Network.NRP.json#/managementGroup_resourceDefinitions/networkManagerConnections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-11-01/Microsoft.Network.NRP.json#/managementGroup_resourceDefinitions/networkManagerConnections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-01-01/Microsoft.Network.NRP.json#/managementGroup_resourceDefinitions/networkManagerConnections"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-03-01/Microsoft.Network.NRP.json#/managementGroup_resourceDefinitions/networkManagerConnections"
+            },
+            {
               "$ref": "https://schema.management.azure.com/schemas/2018-07-01-preview/Microsoft.PolicyInsights.json#/unknown_resourceDefinitions/remediations"
             },
             {
@@ -853,6 +955,21 @@
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/2021-10-01/Microsoft.PolicyInsights.json#/unknown_resourceDefinitions/remediations"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2024-10-01/Microsoft.PolicyInsights.json#/unknown_resourceDefinitions/remediations"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-06-01-preview/Microsoft.Quota.json#/managementGroup_resourceDefinitions/groupQuotas"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-06-01-preview/Microsoft.Quota.json#/managementGroup_resourceDefinitions/groupQuotas_resourceProviders_groupQuotaRequests"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-06-01-preview/Microsoft.Quota.json#/managementGroup_resourceDefinitions/groupQuotas_resourceProviders_locationSettings"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/2023-06-01-preview/Microsoft.Quota.json#/managementGroup_resourceDefinitions/groupQuotas_subscriptions"
             },
             {
               "$ref": "https://schema.management.azure.com/schemas/2019-05-01/Microsoft.Resources.json#/managementGroup_resourceDefinitions/deployments"

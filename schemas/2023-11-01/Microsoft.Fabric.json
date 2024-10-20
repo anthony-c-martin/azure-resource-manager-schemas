@@ -1,0 +1,162 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2023-11-01/Microsoft.Fabric.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Fabric",
+  "description": "Microsoft Fabric Resource Types",
+  "resourceDefinitions": {
+    "capacities": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-11-01"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*$",
+              "minLength": 3,
+              "maxLength": 63
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the Microsoft Fabric capacity. It must be a minimum of 3 characters, and a maximum of 63."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/FabricCapacityProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The Microsoft Fabric capacity properties."
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RpSku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Represents the SKU name and Azure pricing tier for Microsoft Fabric capacity resource."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Fabric/capacities"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "sku",
+        "type"
+      ],
+      "description": "Microsoft.Fabric/capacities"
+    }
+  },
+  "definitions": {
+    "CapacityAdministration": {
+      "type": "object",
+      "properties": {
+        "members": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "An array of administrator user identities."
+        }
+      },
+      "required": [
+        "members"
+      ],
+      "description": "The administration properties of the Fabric capacity resource"
+    },
+    "FabricCapacityProperties": {
+      "type": "object",
+      "properties": {
+        "administration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CapacityAdministration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The administration properties of the Fabric capacity resource"
+        }
+      },
+      "required": [
+        "administration"
+      ],
+      "description": "The Microsoft Fabric capacity properties."
+    },
+    "RpSku": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the SKU level."
+        },
+        "tier": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Fabric"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the Azure pricing tier to which the SKU applies."
+        }
+      },
+      "required": [
+        "name",
+        "tier"
+      ],
+      "description": "Represents the SKU name and Azure pricing tier for Microsoft Fabric capacity resource."
+    }
+  }
+}

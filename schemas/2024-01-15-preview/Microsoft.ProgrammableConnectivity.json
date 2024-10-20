@@ -1,0 +1,264 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2024-01-15-preview/Microsoft.ProgrammableConnectivity.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.ProgrammableConnectivity",
+  "description": "Microsoft ProgrammableConnectivity Resource Types",
+  "resourceDefinitions": {
+    "gateways": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-01-15-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z]{1}[a-zA-Z0-9-_]{2,127}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure Programmable Connectivity Gateway Name"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/GatewayProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Gateway resource properties"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ProgrammableConnectivity/gateways"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ProgrammableConnectivity/gateways"
+    },
+    "operatorApiConnections": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-01-15-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z]{1}[a-zA-Z0-9-_]{2,127}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Azure Programmable Connectivity (APC) Operator API Connection Name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/OperatorApiConnectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Operator API Connection resource properties that cannot be updated once a resource has been created."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ProgrammableConnectivity/operatorApiConnections"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ProgrammableConnectivity/operatorApiConnections"
+    }
+  },
+  "definitions": {
+    "ApplicationProperties": {
+      "type": "object",
+      "properties": {
+        "applicationDescription": {
+          "type": "string",
+          "description": "Description of the application."
+        },
+        "applicationType": {
+          "type": "string",
+          "description": "The category that describes the application."
+        },
+        "legalName": {
+          "type": "string",
+          "description": "Legal name of the organization owning the application."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the application. Example: Contoso App."
+        },
+        "organizationDescription": {
+          "type": "string",
+          "description": "A description of the organization owning the application."
+        },
+        "privacyContactEmailAddress": {
+          "type": "string",
+          "description": "Email address of the Privacy contact or Data Protection officer of the organization."
+        },
+        "taxNumber": {
+          "type": "string",
+          "description": "Unique Tax Number for the user's organization in the country/region the APC Gateway is being purchased."
+        }
+      },
+      "description": "Details about the Application that would use the Operator's Network APIs."
+    },
+    "GatewayProperties": {
+      "type": "object",
+      "properties": {},
+      "description": "Gateway resource properties"
+    },
+    "OperatorApiConnectionProperties": {
+      "type": "object",
+      "properties": {
+        "accountType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AzureManaged",
+                "UserManaged"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of the account the user has with the Operator's Network API infrastructure. AzureManaged | UserManaged."
+        },
+        "appId": {
+          "type": "string",
+          "description": "Application ID of the App Developer that is registered with the Operator in a specific country/region."
+        },
+        "appSecret": {
+          "type": "string",
+          "format": "password",
+          "description": "Application secret linked to the 'appId'. This should be stored securely and is not returned back when the resource information is read."
+        },
+        "configuredApplication": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ApplicationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Details about the Application that would use the Operator's Network APIs."
+        },
+        "gatewayId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "Reference to the APC Gateway resource ID."
+        },
+        "operatorApiPlanId": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "Reference to the Operator API Plan Resource ID."
+        },
+        "saasProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SaasProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Details about the SaaS offer purchased from the marketplace."
+        }
+      },
+      "required": [
+        "accountType",
+        "gatewayId",
+        "operatorApiPlanId"
+      ],
+      "description": "Operator API Connection resource properties that cannot be updated once a resource has been created."
+    },
+    "SaasProperties": {
+      "type": "object",
+      "properties": {
+        "saasResourceId": {
+          "type": "string",
+          "description": "Resource ID of the SaaS offer purchased from the marketplace."
+        },
+        "saasSubscriptionId": {
+          "type": "string",
+          "description": "Subscription ID of the SaaS offer purchased from the marketplace."
+        }
+      },
+      "description": "Details about the SaaS offer purchased from the marketplace."
+    }
+  }
+}
