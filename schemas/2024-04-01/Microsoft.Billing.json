@@ -1,0 +1,2367 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2024-04-01/Microsoft.Billing.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.Billing",
+  "description": "Microsoft Billing Resource Types",
+  "resourceDefinitions": {},
+  "tenant_resourceDefinitions": {
+    "billingAccounts_associatedTenants": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The ID that uniquely identifies a tenant."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AssociatedTenantProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "An associated tenant."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Billing/billingAccounts/associatedTenants"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Billing/billingAccounts/associatedTenants"
+    },
+    "billingAccounts_billingProfiles": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The ID that uniquely identifies a billing profile."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingProfileProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A billing profile."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/billingAccounts_billingProfiles_invoiceSections_childResource"
+              },
+              {
+                "$ref": "#/definitions/billingAccounts_billingProfiles_policies_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Billing/billingAccounts/billingProfiles"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Billing/billingAccounts/billingProfiles"
+    },
+    "billingAccounts_billingProfiles_customers_policies": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/default$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomerPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A policy at customer scope."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Billing/billingAccounts/billingProfiles/customers/policies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Billing/billingAccounts/billingProfiles/customers/policies"
+    },
+    "billingAccounts_billingProfiles_customers_transfers": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The ID that uniquely identifies a transfer request."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/PartnerInitiateTransferProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Request parameters to initiate transfer."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Billing/billingAccounts/billingProfiles/customers/transfers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Billing/billingAccounts/billingProfiles/customers/transfers"
+    },
+    "billingAccounts_billingProfiles_invoiceSections": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The ID that uniquely identifies an invoice section."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InvoiceSectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "An invoice section."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/billingAccounts_billingProfiles_invoiceSections_transfers_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections"
+    },
+    "billingAccounts_billingProfiles_invoiceSections_transfers": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The ID that uniquely identifies a transfer request."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InitiateTransferProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Request parameters to initiate transfer."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/transfers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/transfers"
+    },
+    "billingAccounts_billingProfiles_policies": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/default$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingProfilePolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A policy at billing profile scope."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Billing/billingAccounts/billingProfiles/policies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Billing/billingAccounts/billingProfiles/policies"
+    },
+    "billingAccounts_billingRoleAssignments": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-fA-F0-9]{8}[-]?([a-fA-F0-9]{4}[-]?){3}[a-fA-F0-9]{12}(_[a-fA-F0-9]{8}[-]?([a-fA-F0-9]{4}[-]?){3}[a-fA-F0-9]{12})?$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The ID that uniquely identifies a role assignment."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingRoleAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of the billing role assignment."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Billing/billingAccounts/billingRoleAssignments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Billing/billingAccounts/billingRoleAssignments"
+    },
+    "billingAccounts_billingSubscriptionAliases": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The ID that uniquely identifies a subscription alias."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingSubscriptionAliasProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A billing subscription alias."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Billing/billingAccounts/billingSubscriptionAliases"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Billing/billingAccounts/billingSubscriptionAliases"
+    },
+    "billingAccounts_customers_policies": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/default$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomerPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A policy at customer scope."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Billing/billingAccounts/customers/policies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Billing/billingAccounts/customers/policies"
+    },
+    "billingAccounts_departments_billingRoleAssignments": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-fA-F0-9]{8}[-]?([a-fA-F0-9]{4}[-]?){3}[a-fA-F0-9]{12}(_[a-fA-F0-9]{8}[-]?([a-fA-F0-9]{4}[-]?){3}[a-fA-F0-9]{12})?$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The ID that uniquely identifies a role assignment."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingRoleAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of the billing role assignment."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Billing/billingAccounts/departments/billingRoleAssignments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Billing/billingAccounts/departments/billingRoleAssignments"
+    },
+    "billingAccounts_enrollmentAccounts_billingRoleAssignments": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-fA-F0-9]{8}[-]?([a-fA-F0-9]{4}[-]?){3}[a-fA-F0-9]{12}(_[a-fA-F0-9]{8}[-]?([a-fA-F0-9]{4}[-]?){3}[a-fA-F0-9]{12})?$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The ID that uniquely identifies a role assignment."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingRoleAssignmentProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of the billing role assignment."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Billing/billingAccounts/enrollmentAccounts/billingRoleAssignments"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Billing/billingAccounts/enrollmentAccounts/billingRoleAssignments"
+    },
+    "billingAccounts_policies": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.*/default$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingAccountPolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A policy at billing account scope."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Billing/billingAccounts/policies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Billing/billingAccounts/policies"
+    },
+    "billingRequests": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The ID that uniquely identifies a billing request."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingRequestProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A request submitted by a user to manage billing. Users with an owner role on the scope can approve or decline these requests."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.Billing/billingRequests"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Billing/billingRequests"
+    }
+  },
+  "definitions": {
+    "AssociatedTenantProperties": {
+      "type": "object",
+      "properties": {
+        "billingManagementState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "NotAllowed",
+                "Active",
+                "Revoked"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The state determines whether users from the associated tenant can be assigned roles for commerce activities like viewing and downloading invoices, managing payments, and making purchases."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The name of the associated tenant."
+        },
+        "provisioningManagementState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "NotRequested",
+                "Active",
+                "Pending",
+                "BillingRequestExpired",
+                "BillingRequestDeclined",
+                "Revoked"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The state determines whether subscriptions and licenses can be provisioned in the associated tenant. It can be set to 'Pending' to initiate a billing request."
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "The ID that uniquely identifies a tenant."
+        }
+      },
+      "description": "An associated tenant."
+    },
+    "AzurePlan": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string",
+          "description": "The ID that uniquely identifies a product."
+        },
+        "skuDescription": {
+          "type": "string",
+          "description": "The sku description."
+        },
+        "skuId": {
+          "type": "string",
+          "description": "The ID that uniquely identifies a sku."
+        }
+      },
+      "description": "Details of the Azure plan."
+    },
+    "Beneficiary": {
+      "type": "object",
+      "properties": {
+        "objectId": {
+          "type": "string",
+          "description": "The ID that uniquely identifies a user in a tenant."
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "The ID that uniquely identifies a tenant."
+        }
+      },
+      "description": "Details of the beneficiary."
+    },
+    "BillingAccountPolicyProperties": {
+      "type": "object",
+      "properties": {
+        "enterpriseAgreementPolicies": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingAccountPolicyPropertiesEnterpriseAgreementPolicies"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policies for Enterprise Agreement enrollments."
+        },
+        "marketplacePurchases": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "AllAllowed",
+                "Disabled",
+                "NotAllowed",
+                "OnlyFreeAllowed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policy that controls whether Azure marketplace purchases are allowed."
+        },
+        "policies": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PolicySummary"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of all policies defined at the billing scope."
+        },
+        "reservationPurchases": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "Allowed",
+                "Disabled",
+                "NotAllowed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policy that controls whether Azure reservation purchases are allowed."
+        },
+        "savingsPlanPurchases": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "Allowed",
+                "Disabled",
+                "NotAllowed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policy that controls whether users with Azure savings plan purchase are allowed."
+        }
+      },
+      "description": "A policy at billing account scope."
+    },
+    "BillingAccountPolicyPropertiesEnterpriseAgreementPolicies": {
+      "type": "object",
+      "properties": {
+        "accountOwnerViewCharges": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "Allowed",
+                "Disabled",
+                "NotAllowed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policy that controls whether account owner can view charges."
+        },
+        "authenticationType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "MicrosoftAccountOnly",
+                "MixedAccount",
+                "OrganizationalAccountCrossTenant",
+                "OrganizationalAccountOnly"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The state showing the enrollment auth level."
+        },
+        "departmentAdminViewCharges": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "Allowed",
+                "Disabled",
+                "NotAllowed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policy that controls whether department admin can view charges."
+        }
+      },
+      "description": "The policies for Enterprise Agreement enrollments."
+    },
+    "billingAccounts_billingProfiles_invoiceSections_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The ID that uniquely identifies an invoice section."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InvoiceSectionProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "An invoice section."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "invoiceSections"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections"
+    },
+    "billingAccounts_billingProfiles_invoiceSections_transfers_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The ID that uniquely identifies a transfer request."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/InitiateTransferProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Request parameters to initiate transfer."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "transfers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/transfers"
+    },
+    "billingAccounts_billingProfiles_policies_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-04-01"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "default"
+          ]
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingProfilePolicyProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "A policy at billing profile scope."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "policies"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.Billing/billingAccounts/billingProfiles/policies"
+    },
+    "BillingProfilePolicyProperties": {
+      "type": "object",
+      "properties": {
+        "enterpriseAgreementPolicies": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingProfilePolicyPropertiesEnterpriseAgreementPolicies"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policies for Enterprise Agreement enrollments."
+        },
+        "invoiceSectionLabelManagement": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "Allowed",
+                "NotAllowed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policy that controls invoice section label management at invoice section scope. This is allowed by default."
+        },
+        "marketplacePurchases": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "AllAllowed",
+                "Disabled",
+                "NotAllowed",
+                "OnlyFreeAllowed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policy that controls whether Azure marketplace purchases are allowed."
+        },
+        "policies": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PolicySummary"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of all policies defined at the billing scope."
+        },
+        "reservationPurchases": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "Allowed",
+                "Disabled",
+                "NotAllowed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policy that controls whether Azure reservation purchases are allowed."
+        },
+        "savingsPlanPurchases": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "Allowed",
+                "Disabled",
+                "NotAllowed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policy that controls whether users with Azure savings plan purchase are allowed."
+        },
+        "viewCharges": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "Allowed",
+                "NotAllowed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policy that controls whether the users in customer's organization can view charges at pay-as-you-go prices."
+        }
+      },
+      "description": "A policy at billing profile scope."
+    },
+    "BillingProfilePolicyPropertiesEnterpriseAgreementPolicies": {
+      "type": "object",
+      "properties": {
+        "accountOwnerViewCharges": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "Allowed",
+                "Disabled",
+                "NotAllowed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policy that controls whether account owner can view charges."
+        },
+        "authenticationType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "MicrosoftAccountOnly",
+                "MixedAccount",
+                "OrganizationalAccountCrossTenant",
+                "OrganizationalAccountOnly"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The state showing the enrollment auth level."
+        },
+        "departmentAdminViewCharges": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "Allowed",
+                "Disabled",
+                "NotAllowed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policy that controls whether department admin can view charges."
+        }
+      },
+      "description": "The policies for Enterprise Agreement enrollments."
+    },
+    "BillingProfileProperties": {
+      "type": "object",
+      "properties": {
+        "billTo": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingProfilePropertiesBillTo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Billing address."
+        },
+        "currentPaymentTerm": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingProfilePropertiesCurrentPaymentTerm"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The current payment term of the billing profile."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The name of the billing profile."
+        },
+        "enabledAzurePlans": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AzurePlan"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Information about the enabled azure plans."
+        },
+        "indirectRelationshipInfo": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingProfilePropertiesIndirectRelationshipInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identifies the billing profile that is linked to another billing profile in indirect purchase motion."
+        },
+        "invoiceEmailOptIn": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Flag controlling whether the invoices for the billing profile are sent through email."
+        },
+        "invoiceRecipients": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The list of email addresses to receive invoices by email for the billing profile."
+        },
+        "poNumber": {
+          "type": "string",
+          "description": "The default purchase order number that will appear on the invoices generated for the billing profile."
+        },
+        "shipTo": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingProfilePropertiesShipTo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used."
+        },
+        "soldTo": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingProfilePropertiesSoldTo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The address of the individual or organization that is responsible for the billing account."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dictionary of metadata associated with the resource. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /"
+        }
+      },
+      "description": "A billing profile."
+    },
+    "BillingProfilePropertiesBillTo": {
+      "type": "object",
+      "properties": {
+        "addressLine1": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Address line 1."
+        },
+        "addressLine2": {
+          "type": "string",
+          "description": "Address line 2."
+        },
+        "addressLine3": {
+          "type": "string",
+          "description": "Address line 2."
+        },
+        "city": {
+          "type": "string",
+          "description": "Address city."
+        },
+        "companyName": {
+          "type": "string",
+          "description": "Company name. Optional for MCA Individual (Pay-as-you-go)."
+        },
+        "country": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Country code uses ISO 3166-1 Alpha-2 format."
+        },
+        "district": {
+          "type": "string",
+          "description": "Address district."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address."
+        },
+        "firstName": {
+          "type": "string",
+          "description": "First name. Optional for MCA Enterprise."
+        },
+        "isValidAddress": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates if the address is incomplete."
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Last name. Optional for MCA Enterprise."
+        },
+        "middleName": {
+          "type": "string",
+          "description": "Middle name."
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Phone number."
+        },
+        "postalCode": {
+          "type": "string",
+          "description": "Postal code."
+        },
+        "region": {
+          "type": "string",
+          "description": "Address region."
+        }
+      },
+      "required": [
+        "addressLine1",
+        "country"
+      ],
+      "description": "Billing address."
+    },
+    "BillingProfilePropertiesCurrentPaymentTerm": {
+      "type": "object",
+      "properties": {
+        "endDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date on when the defined 'Payment Term' will end and is always in UTC."
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date on when the defined 'Payment Term' will be effective from and is always in UTC."
+        },
+        "term": {
+          "type": "string",
+          "description": "Represents duration in netXX format. Always in days."
+        }
+      },
+      "description": "The current payment term of the billing profile."
+    },
+    "BillingProfilePropertiesIndirectRelationshipInfo": {
+      "type": "object",
+      "properties": {
+        "billingAccountName": {
+          "type": "string",
+          "description": "The billing account name of the partner or the customer for an indirect motion."
+        },
+        "billingProfileName": {
+          "type": "string",
+          "description": "The billing profile name of the partner or the customer for an indirect motion."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The display name of the partner or customer for an indirect motion."
+        }
+      },
+      "description": "Identifies the billing profile that is linked to another billing profile in indirect purchase motion."
+    },
+    "BillingProfilePropertiesShipTo": {
+      "type": "object",
+      "properties": {
+        "addressLine1": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Address line 1."
+        },
+        "addressLine2": {
+          "type": "string",
+          "description": "Address line 2."
+        },
+        "addressLine3": {
+          "type": "string",
+          "description": "Address line 2."
+        },
+        "city": {
+          "type": "string",
+          "description": "Address city."
+        },
+        "companyName": {
+          "type": "string",
+          "description": "Company name. Optional for MCA Individual (Pay-as-you-go)."
+        },
+        "country": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Country code uses ISO 3166-1 Alpha-2 format."
+        },
+        "district": {
+          "type": "string",
+          "description": "Address district."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address."
+        },
+        "firstName": {
+          "type": "string",
+          "description": "First name. Optional for MCA Enterprise."
+        },
+        "isValidAddress": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates if the address is incomplete."
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Last name. Optional for MCA Enterprise."
+        },
+        "middleName": {
+          "type": "string",
+          "description": "Middle name."
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Phone number."
+        },
+        "postalCode": {
+          "type": "string",
+          "description": "Postal code."
+        },
+        "region": {
+          "type": "string",
+          "description": "Address region."
+        }
+      },
+      "required": [
+        "addressLine1",
+        "country"
+      ],
+      "description": "The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used."
+    },
+    "BillingProfilePropertiesSoldTo": {
+      "type": "object",
+      "properties": {
+        "addressLine1": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Address line 1."
+        },
+        "addressLine2": {
+          "type": "string",
+          "description": "Address line 2."
+        },
+        "addressLine3": {
+          "type": "string",
+          "description": "Address line 2."
+        },
+        "city": {
+          "type": "string",
+          "description": "Address city."
+        },
+        "companyName": {
+          "type": "string",
+          "description": "Company name. Optional for MCA Individual (Pay-as-you-go)."
+        },
+        "country": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Country code uses ISO 3166-1 Alpha-2 format."
+        },
+        "district": {
+          "type": "string",
+          "description": "Address district."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address."
+        },
+        "firstName": {
+          "type": "string",
+          "description": "First name. Optional for MCA Enterprise."
+        },
+        "isValidAddress": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates if the address is incomplete."
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Last name. Optional for MCA Enterprise."
+        },
+        "middleName": {
+          "type": "string",
+          "description": "Middle name."
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Phone number."
+        },
+        "postalCode": {
+          "type": "string",
+          "description": "Postal code."
+        },
+        "region": {
+          "type": "string",
+          "description": "Address region."
+        }
+      },
+      "required": [
+        "addressLine1",
+        "country"
+      ],
+      "description": "The address of the individual or organization that is responsible for the billing account."
+    },
+    "BillingRequestProperties": {
+      "type": "object",
+      "properties": {
+        "additionalInformation": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Additional information for the billing request."
+        },
+        "createdBy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingRequestPropertiesCreatedBy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The principal of the entity who created the request."
+        },
+        "decisionReason": {
+          "type": "string",
+          "description": "The reason to approve or decline the request."
+        },
+        "justification": {
+          "type": "string",
+          "description": "Justification for submitting request."
+        },
+        "lastUpdatedBy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingRequestPropertiesLastUpdatedBy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The principal of the entity who last updated the request."
+        },
+        "recipients": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Principal"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The recipients of the billing request."
+        },
+        "requestScope": {
+          "type": "string",
+          "description": "The billing scope for which the request was submitted (ex. '/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}')."
+        },
+        "reviewedBy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BillingRequestPropertiesReviewedBy"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The principal of the request reviewer. Will only be set if request is approved."
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "Pending",
+                "Approved",
+                "Declined",
+                "Cancelled",
+                "Completed",
+                "Expired"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Status of billing request."
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "InvoiceAccess",
+                "ProvisioningAccess",
+                "RoleAssignment",
+                "UpdateBillingPolicy"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Type of billing request."
+        }
+      },
+      "description": "A request submitted by a user to manage billing. Users with an owner role on the scope can approve or decline these requests."
+    },
+    "BillingRequestPropertiesCreatedBy": {
+      "type": "object",
+      "properties": {
+        "objectId": {
+          "type": "string",
+          "description": "The object id of the principal who has interacted with a billing entity."
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "The tenant id of the principal who has interacted with a billing entity."
+        },
+        "upn": {
+          "type": "string",
+          "description": "The user principal name of the principal who has interacted with a billing entity."
+        }
+      },
+      "description": "The principal of the entity who created the request."
+    },
+    "BillingRequestPropertiesLastUpdatedBy": {
+      "type": "object",
+      "properties": {
+        "objectId": {
+          "type": "string",
+          "description": "The object id of the principal who has interacted with a billing entity."
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "The tenant id of the principal who has interacted with a billing entity."
+        },
+        "upn": {
+          "type": "string",
+          "description": "The user principal name of the principal who has interacted with a billing entity."
+        }
+      },
+      "description": "The principal of the entity who last updated the request."
+    },
+    "BillingRequestPropertiesReviewedBy": {
+      "type": "object",
+      "properties": {
+        "objectId": {
+          "type": "string",
+          "description": "The object id of the principal who has interacted with a billing entity."
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "The tenant id of the principal who has interacted with a billing entity."
+        },
+        "upn": {
+          "type": "string",
+          "description": "The user principal name of the principal who has interacted with a billing entity."
+        }
+      },
+      "description": "The principal of the request reviewer. Will only be set if request is approved."
+    },
+    "BillingRoleAssignmentProperties": {
+      "type": "object",
+      "properties": {
+        "principalId": {
+          "type": "string",
+          "description": "The object id of the user to whom the role was assigned."
+        },
+        "principalPuid": {
+          "type": "string",
+          "description": "The principal PUID of the user to whom the role was assigned."
+        },
+        "principalTenantId": {
+          "type": "string",
+          "description": "The principal tenant id of the user to whom the role was assigned."
+        },
+        "roleDefinitionId": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The ID of the role definition."
+        },
+        "scope": {
+          "type": "string",
+          "description": "The scope at which the role was assigned."
+        },
+        "userAuthenticationType": {
+          "type": "string",
+          "description": "The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement."
+        },
+        "userEmailAddress": {
+          "type": "string",
+          "description": "The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement."
+        }
+      },
+      "required": [
+        "roleDefinitionId"
+      ],
+      "description": "The properties of the billing role assignment."
+    },
+    "BillingSubscriptionAliasProperties": {
+      "type": "object",
+      "properties": {
+        "autoRenew": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Off",
+                "On"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Indicates whether auto renewal is turned on or off for a product."
+        },
+        "beneficiary": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Beneficiary"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Details of the beneficiary."
+        },
+        "beneficiaryTenantId": {
+          "type": "string",
+          "description": "The provisioning tenant of the subscription."
+        },
+        "billingFrequency": {
+          "type": "string",
+          "description": "The billing frequency in ISO8601 format of product in the subscription. Example: P1M, P3M, P1Y"
+        },
+        "billingProfileId": {
+          "type": "string",
+          "description": "The fully qualified ID that uniquely identifies a billing profile."
+        },
+        "consumptionCostCenter": {
+          "type": "string",
+          "description": "The cost center applied to the subscription. This field is only available for consumption subscriptions of Microsoft Customer Agreement or Enterprise Agreement Type billing accounts."
+        },
+        "customerId": {
+          "type": "string",
+          "description": "The fully qualified ID that uniquely identifies a customer."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The name of the billing subscription."
+        },
+        "enrollmentAccountSubscriptionDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EnrollmentAccountSubscriptionDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The billing properties that can be modified. Available only for the Enterprise Agreement Type."
+        },
+        "invoiceSectionId": {
+          "type": "string",
+          "description": "The fully qualified ID that uniquely identifies an invoice section."
+        },
+        "nextBillingCycleDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/NextBillingCycleDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Billing cycle details of the product."
+        },
+        "productTypeId": {
+          "type": "string",
+          "description": "Id of the product for which the subscription is purchased."
+        },
+        "provisioningTenantId": {
+          "type": "string",
+          "description": "The tenant in which the subscription is provisioned."
+        },
+        "quantity": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The quantity of licenses or fulfillment units for the subscription."
+        },
+        "renewalTermDetails": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/RenewalTermDetails"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Details for the next renewal term of a subscription."
+        },
+        "reseller": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Reseller"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Details of the reseller."
+        },
+        "skuId": {
+          "type": "string",
+          "description": "The SKU ID of the product for which the subscription is purchased. This field is is only available  for Microsoft Customer Agreement billing accounts."
+        },
+        "systemOverrides": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SystemOverrides"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "System imposed policies that regulate behavior of the subscription."
+        },
+        "termDuration": {
+          "type": "string",
+          "description": "The duration in ISO8601 format for which you can use the subscription. Example: P1M, P3M, P1Y"
+        }
+      },
+      "description": "A billing subscription alias."
+    },
+    "CustomerPolicyProperties": {
+      "type": "object",
+      "properties": {
+        "policies": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PolicySummary"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of all policies defined at the billing scope."
+        },
+        "viewCharges": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "Allowed",
+                "NotAllowed"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The policy that controls whether the users in customer's organization can view charges at pay-as-you-go prices."
+        }
+      },
+      "required": [
+        "viewCharges"
+      ],
+      "description": "A policy at customer scope."
+    },
+    "EnrollmentAccountSubscriptionDetails": {
+      "type": "object",
+      "properties": {},
+      "description": "The billing properties that can be modified. Available only for the Enterprise Agreement Type."
+    },
+    "InitiateTransferProperties": {
+      "type": "object",
+      "properties": {
+        "recipientEmailId": {
+          "type": "string",
+          "description": "The email ID of the recipient to whom the transfer request is sent."
+        }
+      },
+      "description": "Request parameters to initiate transfer."
+    },
+    "InvoiceSectionProperties": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "The name of the invoice section."
+        },
+        "reasonCode": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "PastDue",
+                "UnusualActivity",
+                "SpendingLimitReached",
+                "SpendingLimitExpired"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Reason for the specified invoice section status."
+        },
+        "state": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "Active",
+                "Deleted",
+                "Disabled",
+                "UnderReview",
+                "Warned",
+                "Restricted"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Identifies the status of an invoice section."
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Dictionary of metadata associated with the resource. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /"
+        },
+        "targetCloud": {
+          "type": "string",
+          "description": "Identifies the cloud environments that are associated with an invoice section. This is a system managed optional field and gets updated as the invoice section gets associated with accounts in various clouds."
+        }
+      },
+      "description": "An invoice section."
+    },
+    "NextBillingCycleDetails": {
+      "type": "object",
+      "properties": {},
+      "description": "Billing cycle details of the product."
+    },
+    "PartnerInitiateTransferProperties": {
+      "type": "object",
+      "properties": {
+        "recipientEmailId": {
+          "type": "string",
+          "description": "The email ID of the recipient to whom the transfer request is sent."
+        },
+        "resellerId": {
+          "type": "string",
+          "description": "Optional MPN ID of the reseller for transfer requests that are sent from a Microsoft Partner Agreement billing account."
+        }
+      },
+      "description": "Request parameters to initiate transfer."
+    },
+    "PolicySummary": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the policy."
+        },
+        "policyType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Other",
+                "UserControlled",
+                "SystemControlled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The type of the policy."
+        },
+        "scope": {
+          "type": "string",
+          "description": "The scope at which the policy is defined."
+        },
+        "value": {
+          "type": "string",
+          "description": "The value of the policy."
+        }
+      },
+      "description": "The summary of the policy."
+    },
+    "Principal": {
+      "type": "object",
+      "properties": {
+        "objectId": {
+          "type": "string",
+          "description": "The object id of the principal who has interacted with a billing entity."
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "The tenant id of the principal who has interacted with a billing entity."
+        },
+        "upn": {
+          "type": "string",
+          "description": "The user principal name of the principal who has interacted with a billing entity."
+        }
+      },
+      "description": "A principal who has interacted with a billing entity."
+    },
+    "RenewalTermDetails": {
+      "type": "object",
+      "properties": {
+        "quantity": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The quantity of licenses or fulfillment units for the subscription."
+        }
+      },
+      "description": "Details for the next renewal term of a subscription."
+    },
+    "Reseller": {
+      "type": "object",
+      "properties": {},
+      "description": "Details of the reseller."
+    },
+    "SystemOverrides": {
+      "type": "object",
+      "properties": {},
+      "description": "System imposed policies that regulate behavior of the subscription."
+    }
+  }
+}
