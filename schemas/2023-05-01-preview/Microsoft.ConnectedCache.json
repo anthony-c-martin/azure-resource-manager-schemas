@@ -1,0 +1,1233 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2023-05-01-preview/Microsoft.ConnectedCache.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.ConnectedCache",
+  "description": "Microsoft ConnectedCache Resource Types",
+  "resourceDefinitions": {
+    "cacheNodes": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-05-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9\\_\\-]*",
+              "minLength": 1,
+              "maxLength": 90
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Customer resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CacheNodeOldResponse"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model representing Cache Node for ConnectedCache resource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ConnectedCache/cacheNodes"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ConnectedCache/cacheNodes"
+    },
+    "enterpriseCustomers": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-05-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9\\_\\-]*",
+              "minLength": 1,
+              "maxLength": 90
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Customer resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CacheNodeOldResponse"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model representing Cache Node for ConnectedCache resource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ConnectedCache/enterpriseCustomers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ConnectedCache/enterpriseCustomers"
+    },
+    "enterpriseMccCustomers": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-05-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9\\_\\-]*",
+              "minLength": 1,
+              "maxLength": 90
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Customer resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomerProperty"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model representing customer for connectedCache resource"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/enterpriseMccCustomers_enterpriseMccCacheNodes_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ConnectedCache/enterpriseMccCustomers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ConnectedCache/enterpriseMccCustomers"
+    },
+    "enterpriseMccCustomers_enterpriseMccCacheNodes": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-05-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9\\_\\-]*",
+              "minLength": 1,
+              "maxLength": 90
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the ConnectedCache resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CacheNodeProperty"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model representing an Mcc cache node connectedCache resource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ConnectedCache/enterpriseMccCustomers/enterpriseMccCacheNodes"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ConnectedCache/enterpriseMccCustomers/enterpriseMccCacheNodes"
+    },
+    "ispCustomers": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-05-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9\\_\\-]*",
+              "minLength": 1,
+              "maxLength": 90
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the Customer resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomerProperty"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model representing customer for connectedCache resource"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/ispCustomers_ispCacheNodes_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ConnectedCache/ispCustomers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ConnectedCache/ispCustomers"
+    },
+    "ispCustomers_ispCacheNodes": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-05-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9\\_\\-]*",
+              "minLength": 1,
+              "maxLength": 90
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the ConnectedCache resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CacheNodeProperty"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model representing an Mcc cache node connectedCache resource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.ConnectedCache/ispCustomers/ispCacheNodes"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ConnectedCache/ispCustomers/ispCacheNodes"
+    }
+  },
+  "definitions": {
+    "AdditionalCacheNodeProperties": {
+      "type": "object",
+      "properties": {
+        "autoUpdateVersion": {
+          "type": "string",
+          "description": "Auto update or fast update version"
+        },
+        "bgpConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/BgpConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Bgp configuration of cache node"
+        },
+        "cacheNodePropertiesDetailsIssuesList": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "issues list to return the issues as part of the additional cache node properties"
+        },
+        "driveConfiguration": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CacheNodeDriveConfiguration"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cache node resource drive configurations."
+        },
+        "isProxyRequired": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "None",
+                "Required"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cache node resource requires a proxy."
+        },
+        "optionalProperty1": {
+          "type": "string",
+          "description": "Optional property #1 of Mcc response object"
+        },
+        "optionalProperty2": {
+          "type": "string",
+          "description": "Optional property #1 of Mcc response object"
+        },
+        "optionalProperty3": {
+          "type": "string",
+          "description": "Optional property #1 of Mcc response object"
+        },
+        "optionalProperty4": {
+          "type": "string",
+          "description": "Optional property #1 of Mcc response object"
+        },
+        "optionalProperty5": {
+          "type": "string",
+          "description": "Optional property #1 of Mcc response object"
+        },
+        "osType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Windows",
+                "Linux",
+                "Eflow"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Operating system of the cache node."
+        },
+        "proxyUrl": {
+          "type": "string",
+          "description": "Cache node resource Mcc proxy Url"
+        },
+        "proxyUrlConfiguration": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ProxyUrlConfiguration"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ProxyUrl configuration of cache node"
+        },
+        "updateCycleType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Preview",
+                "Slow",
+                "Fast"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Update Cycle Type."
+        },
+        "updateInfoDetails": {
+          "type": "string",
+          "description": "Update related information details"
+        },
+        "updateRequestedDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "customer requested date time for mcc install of update cycle"
+        }
+      },
+      "description": "Model representing cache node for connected cache resource"
+    },
+    "AdditionalCustomerProperties": {
+      "type": "object",
+      "properties": {
+        "customerAsn": {
+          "type": "string",
+          "description": "Customer resource Asn (autonomous system number)."
+        },
+        "customerEmail": {
+          "type": "string",
+          "description": "Customer resource contact email."
+        },
+        "customerEntitlementExpiration": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Customer resource entitlement expiration date string."
+        },
+        "customerEntitlementSkuGuid": {
+          "type": "string",
+          "description": "Customer resource entitlement Sku Guid."
+        },
+        "customerEntitlementSkuId": {
+          "type": "string",
+          "description": "Customer resource entitlement Sku Id."
+        },
+        "customerEntitlementSkuName": {
+          "type": "string",
+          "description": "Customer resource entitlement Sku name."
+        },
+        "customerTransitAsn": {
+          "type": "string",
+          "description": "Customer resource transit Asn (autonomous system number)."
+        },
+        "customerTransitState": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "NoTransit",
+                "CombinedTransit",
+                "TransitOnly"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Customer resource transit state."
+        },
+        "optionalProperty1": {
+          "type": "string",
+          "description": "Optional property #1 of Mcc response object."
+        },
+        "optionalProperty2": {
+          "type": "string",
+          "description": "Optional property #1 of Mcc response object."
+        },
+        "optionalProperty3": {
+          "type": "string",
+          "description": "Optional property #1 of Mcc response object."
+        },
+        "optionalProperty4": {
+          "type": "string",
+          "description": "Optional property #1 of Mcc response object."
+        },
+        "optionalProperty5": {
+          "type": "string",
+          "description": "Optional property #1 of Mcc response object."
+        }
+      },
+      "description": "Model representing customer for connected cache resource"
+    },
+    "BgpConfiguration": {
+      "type": "object",
+      "properties": {
+        "asnToIpAddressMapping": {
+          "type": "string",
+          "description": "Asn to ip address mapping"
+        }
+      },
+      "description": "Bgp configuration of cache node"
+    },
+    "CacheNodeDriveConfiguration": {
+      "type": "object",
+      "properties": {
+        "cacheNumber": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 20
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "corresponding nginx cache number. Valid cache numbers are 1 - 20"
+        },
+        "nginxMapping": {
+          "type": "string",
+          "description": "full binding for corresponding nginx cache drive"
+        },
+        "physicalPath": {
+          "type": "string",
+          "description": "physical path location of the folder used for caching content"
+        },
+        "sizeInGb": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "physical size of the drive used for caching content"
+        }
+      },
+      "description": "Drive configuration for cache node"
+    },
+    "CacheNodeEntity": {
+      "type": "object",
+      "properties": {
+        "autoUpdateRequestedDay": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 7
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Customer requested day of week for mcc install of auto update cycle"
+        },
+        "autoUpdateRequestedTime": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Customer requested time of the day for mcc install of auto update cycle, should be hh:mm"
+        },
+        "autoUpdateRequestedWeek": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Customer requested week of month for mcc install of auto update cycle"
+        },
+        "autoUpdateRingType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Preview",
+                "Slow",
+                "Fast"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Auto Update Ring Type which is slow or fast etc."
+        },
+        "cacheNodeId": {
+          "type": "string",
+          "description": "Cache node resource identifier of the cache node"
+        },
+        "cacheNodeName": {
+          "type": "string",
+          "description": "Cache node resource name."
+        },
+        "cidrCsv": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cache node resource comma separated values of Cidrs."
+        },
+        "cidrSelectionType": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cache node resource current Cidr range precedence selection type."
+        },
+        "customerAsn": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cache node resource customer resource Asn (autonomous system number)"
+        },
+        "customerIndex": {
+          "type": "string",
+          "description": "Cache node resource customer index as string."
+        },
+        "customerName": {
+          "type": "string",
+          "description": "Cache node resource customer resource name."
+        },
+        "fullyQualifiedDomainName": {
+          "type": "string",
+          "description": "FQDN(fully qualified domain name) value of the mcc cache node"
+        },
+        "fullyQualifiedResourceId": {
+          "type": "string",
+          "description": "Cache node resource Azure fully qualified resource Id."
+        },
+        "ipAddress": {
+          "type": "string",
+          "description": "Cache node resource Ip address."
+        },
+        "isEnabled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cache node resource flag for indicating if cache node is enabled."
+        },
+        "isEnterpriseManaged": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cache node resource flag for determining if managed by enterprise as boolean."
+        },
+        "maxAllowableEgressInMbps": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cache node resource maximum allowed egress in Mbps."
+        },
+        "shouldMigrate": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Cache node resource flag for determining if customer will be migrated."
+        }
+      },
+      "description": "Model representing Cache Node for ConnectedCache resource"
+    },
+    "CacheNodeOldResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ErrorDetail"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The error detail."
+        },
+        "statusCode": {
+          "type": "string",
+          "description": "statusCode used to get code details of Mcc response object"
+        },
+        "statusDetails": {
+          "type": "string",
+          "description": "statusDetails used to get inner details of Mcc response object"
+        },
+        "statusText": {
+          "type": "string",
+          "description": "statusText used to get status details in string format of Mcc response object"
+        }
+      },
+      "description": "Model representing Cache Node for ConnectedCache resource"
+    },
+    "CacheNodeProperty": {
+      "type": "object",
+      "properties": {
+        "additionalCacheNodeProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdditionalCacheNodeProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model representing cache node for connected cache resource"
+        },
+        "cacheNode": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CacheNodeEntity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model representing Cache Node for ConnectedCache resource"
+        },
+        "error": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ErrorDetail"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The error detail."
+        },
+        "statusCode": {
+          "type": "string",
+          "description": "Mcc response status code."
+        },
+        "statusDetails": {
+          "type": "string",
+          "description": "Mcc response status details for retrieving response inner details."
+        },
+        "statusText": {
+          "type": "string",
+          "description": "Mcc response status text as string for retrieving status details."
+        }
+      },
+      "description": "Model representing an Mcc cache node connectedCache resource"
+    },
+    "CustomerEntity": {
+      "type": "object",
+      "properties": {
+        "clientTenantId": {
+          "type": "string",
+          "description": "Customer resource client tenant Id of subscription."
+        },
+        "contactEmail": {
+          "type": "string",
+          "description": "Customer resource contact email."
+        },
+        "contactName": {
+          "type": "string",
+          "description": "Customer resource contact full name."
+        },
+        "contactPhone": {
+          "type": "string",
+          "description": "Customer resource contact phone."
+        },
+        "customerName": {
+          "type": "string",
+          "description": "Customer resource name."
+        },
+        "fullyQualifiedResourceId": {
+          "type": "string",
+          "description": "Customer resource Azure fully qualified resource Id."
+        },
+        "isEnterpriseManaged": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Customer resource flag for enterprise management as boolean."
+        },
+        "isEntitled": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Customer resource entitlement flag as boolean."
+        },
+        "releaseVersion": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Customer resource Mcc release version."
+        },
+        "resendSignupCode": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Customer resource flag for resending signup code as boolean."
+        },
+        "shouldMigrate": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Customer resource flag for migration."
+        },
+        "verifySignupCode": {
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Customer resource flag for requiring verification of signup code as boolean."
+        },
+        "verifySignupPhrase": {
+          "type": "string",
+          "format": "password",
+          "description": "Customer resource phrase for verifying signup."
+        }
+      },
+      "description": "Model representing Customer resource for ConnectedCache resource"
+    },
+    "CustomerProperty": {
+      "type": "object",
+      "properties": {
+        "additionalCustomerProperties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/AdditionalCustomerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model representing customer for connected cache resource"
+        },
+        "customer": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CustomerEntity"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model representing Customer resource for ConnectedCache resource"
+        }
+      },
+      "description": "Model representing customer for connectedCache resource"
+    },
+    "enterpriseMccCustomers_enterpriseMccCacheNodes_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-05-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9\\_\\-]*",
+              "minLength": 1,
+              "maxLength": 90
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the ConnectedCache resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CacheNodeProperty"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model representing an Mcc cache node connectedCache resource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "enterpriseMccCacheNodes"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ConnectedCache/enterpriseMccCustomers/enterpriseMccCacheNodes"
+    },
+    "ErrorDetail": {
+      "type": "object",
+      "properties": {},
+      "description": "The error detail."
+    },
+    "ispCustomers_ispCacheNodes_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2023-05-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9\\_\\-]*",
+              "minLength": 1,
+              "maxLength": 90
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Name of the ConnectedCache resource"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/CacheNodeProperty"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Model representing an Mcc cache node connectedCache resource"
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "ispCacheNodes"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.ConnectedCache/ispCustomers/ispCacheNodes"
+    },
+    "ProxyUrlConfiguration": {
+      "type": "object",
+      "properties": {
+        "proxyUrl": {
+          "type": "string",
+          "description": "Host Proxy Address configuration along with port number. This can be a proxy or ip address. ex: xx.xx.xx.xxxx:80 or host name http://exampleproxy.com:80"
+        }
+      },
+      "description": "ProxyUrl configuration of cache node"
+    }
+  }
+}

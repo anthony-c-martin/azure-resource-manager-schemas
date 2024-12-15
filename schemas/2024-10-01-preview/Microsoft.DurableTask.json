@@ -1,0 +1,245 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2024-10-01-preview/Microsoft.DurableTask.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.DurableTask",
+  "description": "Microsoft DurableTask Resource Types",
+  "resourceDefinitions": {
+    "schedulers": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-10-01-preview"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "description": "The geo-location where the resource lives"
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,64}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the Scheduler"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SchedulerProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Details of the Scheduler"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/schedulers_taskHubs_childResource"
+              }
+            ]
+          }
+        },
+        "tags": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "properties": {}
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource tags."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DurableTask/schedulers"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "location",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DurableTask/schedulers"
+    },
+    "schedulers_taskHubs": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-10-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,64}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the TaskHub"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TaskHubProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of Task Hub"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.DurableTask/schedulers/taskHubs"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DurableTask/schedulers/taskHubs"
+    }
+  },
+  "definitions": {
+    "SchedulerProperties": {
+      "type": "object",
+      "properties": {
+        "ipAllowlist": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "IP allow list for durable task scheduler. Values can be IPv4, IPv6 or CIDR"
+        },
+        "sku": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/SchedulerSku"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The SKU (Stock Keeping Unit) assigned to this durable task scheduler"
+        }
+      },
+      "required": [
+        "ipAllowlist",
+        "sku"
+      ],
+      "description": "Details of the Scheduler"
+    },
+    "SchedulerSku": {
+      "type": "object",
+      "properties": {
+        "capacity": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The SKU capacity. This allows scale out/in for the resource and impacts zone redundancy"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the SKU"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "description": "The SKU (Stock Keeping Unit) assigned to this durable task scheduler"
+    },
+    "schedulers_taskHubs_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-10-01-preview"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-]{3,64}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The name of the TaskHub"
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/TaskHubProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The properties of Task Hub"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "taskHubs"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.DurableTask/schedulers/taskHubs"
+    },
+    "TaskHubProperties": {
+      "type": "object",
+      "properties": {},
+      "description": "The properties of Task Hub"
+    }
+  }
+}
