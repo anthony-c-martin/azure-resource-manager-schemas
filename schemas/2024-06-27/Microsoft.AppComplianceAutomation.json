@@ -1,0 +1,683 @@
+{
+  "id": "https://schema.management.azure.com/schemas/2024-06-27/Microsoft.AppComplianceAutomation.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Microsoft.AppComplianceAutomation",
+  "description": "Microsoft AppComplianceAutomation Resource Types",
+  "resourceDefinitions": {},
+  "tenant_resourceDefinitions": {
+    "reports": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-06-27"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-a-zA-Z0-9_]{1,50}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Report Name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ReportProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Create Report's properties."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/reports_evidences_childResource"
+              },
+              {
+                "$ref": "#/definitions/reports_scopingConfigurations_childResource"
+              },
+              {
+                "$ref": "#/definitions/reports_webhooks_childResource"
+              }
+            ]
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AppComplianceAutomation/reports"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppComplianceAutomation/reports"
+    },
+    "reports_evidences": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-06-27"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-_.]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The evidence name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EvidenceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Evidence's properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AppComplianceAutomation/reports/evidences"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppComplianceAutomation/reports/evidences"
+    },
+    "reports_scopingConfigurations": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-06-27"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The scoping configuration of the specific report."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScopingConfigurationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ScopingConfiguration's properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AppComplianceAutomation/reports/scopingConfigurations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppComplianceAutomation/reports/scopingConfigurations"
+    },
+    "reports_webhooks": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-06-27"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-a-zA-Z0-9_]{1,50}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Webhook Name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WebhookProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Webhook properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Microsoft.AppComplianceAutomation/reports/webhooks"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppComplianceAutomation/reports/webhooks"
+    }
+  },
+  "definitions": {
+    "EvidenceProperties": {
+      "type": "object",
+      "properties": {
+        "controlId": {
+          "type": "string",
+          "description": "Control id."
+        },
+        "evidenceType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "File",
+                "AutoCollectedEvidence",
+                "Data"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Evidence type."
+        },
+        "extraData": {
+          "type": "string",
+          "description": "Extra data considered as evidence."
+        },
+        "filePath": {
+          "type": "string",
+          "description": "The path of the file in storage."
+        },
+        "responsibilityId": {
+          "type": "string",
+          "description": "Responsibility id."
+        }
+      },
+      "required": [
+        "filePath"
+      ],
+      "description": "Evidence's properties."
+    },
+    "ReportProperties": {
+      "type": "object",
+      "properties": {
+        "offerGuid": {
+          "type": "string",
+          "description": "A list of comma-separated offerGuids indicates a series of offerGuids that map to the report. For example, \"00000000-0000-0000-0000-000000000001,00000000-0000-0000-0000-000000000002\" and \"00000000-0000-0000-0000-000000000003\"."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResourceMetadata"
+          },
+          "description": "List of resource data."
+        },
+        "storageInfo": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StorageInfo"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The information of 'bring your own storage' account binding to the report"
+        },
+        "timeZone": {
+          "type": "string",
+          "description": "Report collection trigger time's time zone, the available list can be obtained by executing \"Get-TimeZone -ListAvailable\" in PowerShell.\nAn example of valid timezone id is \"Pacific Standard Time\"."
+        },
+        "triggerTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Report collection trigger time."
+        }
+      },
+      "required": [
+        "resources",
+        "timeZone",
+        "triggerTime"
+      ],
+      "description": "Create Report's properties."
+    },
+    "reports_evidences_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-06-27"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9-_.]+$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The evidence name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/EvidenceProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Evidence's properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "evidences"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppComplianceAutomation/reports/evidences"
+    },
+    "reports_scopingConfigurations_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-06-27"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_]*$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "The scoping configuration of the specific report."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/ScopingConfigurationProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "ScopingConfiguration's properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "scopingConfigurations"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppComplianceAutomation/reports/scopingConfigurations"
+    },
+    "reports_webhooks_childResource": {
+      "type": "object",
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "enum": [
+            "2024-06-27"
+          ]
+        },
+        "name": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-a-zA-Z0-9_]{1,50}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Webhook Name."
+        },
+        "properties": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/WebhookProperties"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Webhook properties."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "webhooks"
+          ]
+        }
+      },
+      "required": [
+        "apiVersion",
+        "name",
+        "properties",
+        "type"
+      ],
+      "description": "Microsoft.AppComplianceAutomation/reports/webhooks"
+    },
+    "ResourceMetadata": {
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "type": "string",
+          "description": "Account Id. For example - the AWS account id."
+        },
+        "resourceId": {
+          "type": "string",
+          "description": "Resource Id - e.g. \"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1\"."
+        },
+        "resourceKind": {
+          "type": "string",
+          "description": "Resource kind."
+        },
+        "resourceOrigin": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Azure",
+                "AWS",
+                "GCP"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Resource Origin."
+        },
+        "resourceType": {
+          "type": "string",
+          "description": "Resource type. e.g. \"Microsoft.Compute/virtualMachines\""
+        }
+      },
+      "required": [
+        "resourceId"
+      ],
+      "description": "Single resource Id's metadata."
+    },
+    "ScopingAnswer": {
+      "type": "object",
+      "properties": {
+        "answers": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Question answer value list."
+        },
+        "questionId": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[-a-zA-Z0-9_]{1,50}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Question id."
+        }
+      },
+      "required": [
+        "answers",
+        "questionId"
+      ],
+      "description": "Scoping answer."
+    },
+    "ScopingConfigurationProperties": {
+      "type": "object",
+      "properties": {
+        "answers": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ScopingAnswer"
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "List of scoping question answers."
+        }
+      },
+      "description": "ScopingConfiguration's properties."
+    },
+    "StorageInfo": {
+      "type": "object",
+      "properties": {
+        "accountName": {
+          "type": "string",
+          "description": "'bring your own storage' account name"
+        },
+        "location": {
+          "type": "string",
+          "description": "The region of 'bring your own storage' account"
+        },
+        "resourceGroup": {
+          "type": "string",
+          "description": "The resourceGroup which 'bring your own storage' account belongs to"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "description": "The subscription id which 'bring your own storage' account belongs to"
+        }
+      },
+      "description": "The information of 'bring your own storage' account binding to the report"
+    },
+    "WebhookProperties": {
+      "type": "object",
+      "properties": {
+        "contentType": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "application/json"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "content type."
+        },
+        "enableSslVerification": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "whether to enable ssl verification."
+        },
+        "events": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "generate_snapshot_success",
+                  "generate_snapshot_failed",
+                  "assessment_failure",
+                  "report_configuration_changes",
+                  "report_deletion"
+                ]
+              }
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "under which event notification should be sent."
+        },
+        "payloadUrl": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^(http(s)?://)[\\S]{0,64994}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "webhook payload url"
+        },
+        "sendAllEvents": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "whether to send notification under any event."
+        },
+        "status": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Enabled",
+                "Disabled"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "Webhook status."
+        },
+        "updateWebhookKey": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ]
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "whether to update webhookKey."
+        },
+        "webhookKey": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^.{0,2048}$"
+            },
+            {
+              "$ref": "https://schema.management.azure.com/schemas/common/definitions.json#/definitions/expression"
+            }
+          ],
+          "description": "webhook secret token. If not set, this field value is null; otherwise, please set a string value."
+        }
+      },
+      "description": "Webhook properties."
+    }
+  }
+}

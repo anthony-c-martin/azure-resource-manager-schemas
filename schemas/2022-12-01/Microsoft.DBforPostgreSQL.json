@@ -409,11 +409,11 @@
       "properties": {
         "source": {
           "type": "string",
-          "description": "Source of the configuration."
+          "description": "Source of the configuration. Required to update the configuration."
         },
         "value": {
           "type": "string",
-          "description": "Value of the configuration."
+          "description": "Value of the configuration. Required to update the configuration."
         }
       },
       "description": "The properties of a configuration."
